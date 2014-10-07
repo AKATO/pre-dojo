@@ -1,2 +1,40 @@
-Coloque aqui suas instruções ou comentários que ache útil/relevantes para possamos ler 
-quando estivermos avaliando a sua solução
+    Projeto JogoDeTiro - Desenvolvido por Arthur Kato
+
+    Tecnologias envolvidas: Java, Maven e JUnit
+
+- Leitor -> Objeto responsavel por ler o arquivo de log do jogo;
+	
+	Obs.: O arquivo de logs a ser lido, deve estar na pasta raiz do projeto, Ex.: /jogodetiro/exemplo5.txt
+	No caso do projeto em questao, o arquivo utilizado "exemplo5.txt" para validar o caso de teste na classe: "JogoTest"
+
+
+- Jogo   -> Objeto responsavel por gerenciar os eventos lidos no arquivo, possui Partida(s) e o Ranking do Jogo em relacao a partida com a classe "Leitor", atraves do metodo "lerEventos" e iniciar uma partida atraves do metodo "Jogar". Apos encerrar uma partida, verifica quais jogadores nao morreram e ganharam um bonus, Associa os jogadores ao "Ranking", ordena pelo numero de pontos e imprime resultados. 
+
+
+- Partida -> Objeto responsavel por ter os jogadores, horario de inicio e fim da partida.
+ 
+- Jogador -> Objeto resposavel por gravar as informacoes dos jogadore e respectivos eventos que envolvem o mesmo na partida, seja assassinato, baixa, e contagem de premios ganhos pelo jogador na partda;
+
+- Arma    -> Objeto responsavel por gravar os informacoes da arma utilizada em cada assassinato dentro da partida e a contagem da dos 		  assassinator por arma utilizada.
+
+- Ranking  -> Objeto que possui os Jogadores, suas pontuacoes, sua posicao final apos o termino da partida e sua Arma Preferida*
+
+	* Arma Preferida, arma que obteve mais mortes, caso o mesmo nao tenha mortes por mais de uma arma, a arma preferida sera a unica arma utilzada pelo mesmo, se o mesmo nao matou ninguem, a sua arma preferida e NULA.
+
+
+------------------------------------------ Caso de Teste ------------------------------------------------------------
+
+Atraves da classe    "JogoTest" sera possivel validar os resultados dos testes com Junit:
+
+- Esta Classe possui um lista "mocada"(mocando o objeto leitor) e espera o resultado da execucao do arquivo "exemplo5.txt"
+
+- Com base nesse Log da partida("exemplo5.txt"), quando o metodo "lerEventos" for chamado, uma lista de String com os "eventos" sera devolvida para simular a leitura do arquivo, para que o objeto "Jogo" possa "Jogar".
+
+-Valida Ranking, atraves do metodo "validaRanking" certifica-se de que apos a partida ter sido "Jogada"("object.jogar()") os pontos do jogador vencedor foi o "Romam".	 
+
+-Valida Partidas, atraves do metodo "validaPartidas" certifica-se de que o numero de partidas do arquivo lido tem "1" partida.
+
+-Valida Armas, atraves do metodo "validaArma", certifica-se de que a arma do jogador vencedor da partida e a "M16"
+
+-Valida Pontos, atraves do metodo "validaPontos", certifica-se de que os pontos do jogador vencedor foram "10" pontos.
+
